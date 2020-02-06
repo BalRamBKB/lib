@@ -1,0 +1,32 @@
+// Colors Fore color and Background color
+
+@each $name, $color in $colors {
+  $bgcolor: nth($color, 1);
+  $fontcolor: nth($color, 2);
+  
+  .bg-#{$name} {
+    background: $bgcolor;
+  }
+  .text-#{$name} {
+    color: $bgcolor;
+  }
+}
+
+.alert {
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+  position: relative;
+  padding: 15px;
+      
+  @each $name, $color in $colors {
+    $bgcolor: nth($color, 1);
+    $fontcolor: nth($color, 2);
+      &-#{$name} {
+        background: lighten($bgcolor, 20%);
+        color: darken($bgcolor, 20%);
+      }
+      &-link {
+        color: darken($bgcolor, 20%);
+      }
+  }
+}

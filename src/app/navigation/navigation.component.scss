@@ -1,0 +1,104 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow: auto;
+  z-index: 9;
+  .closebtn {
+    display: none;
+  }
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #22aed8;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #22aed8;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.logo {
+      font-size: 24px;
+      font-weight: 700;
+      padding-top: 15px;
+      text-decoration: none;
+  }
+
+@media screen and (max-width: 767px) {
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    .logo {
+      display: none;
+    }
+    .closebtn {
+      color: #000;
+      display: block;
+      font-size: 36px;
+      text-align: right;
+    }
+  }
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+      color: #f1f1f1;
+  }
+
+  .header {
+    background: #03a9f4;
+    box-shadow: 0 0 4px 4px rgba(0,0,0,.5);
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-gap: 10px;
+    padding: 0 15px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 9;
+    .hamburger {
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 20px;
+      justify-self: end;
+      padding: 15px 0;
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+@mixin selectors($selector) {
+  .#{$selector} {
+    #{selector-append('.child-', $selector)} {
+      width: 100%;
+    }
+  }
+
+}
+
+@include selectors(container);
+
+// Result: .container .child-container
+
+
+#{selector-append('.section', ".title")} {
+  color: green;
+}
+// Result: .section.title"
+
+#{selector-nest(header, h1, ".subtitle")} {
+  color: pink;
+}
+// Result: header h1 .subtitle"
+
+#{selector-replace("p .italics", ".italics", ".bold")} {
+  color: yellow;
+}
+// Result: "p" "bold"

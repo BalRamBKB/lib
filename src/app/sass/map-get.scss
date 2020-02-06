@@ -1,0 +1,151 @@
+
+.abcc {
+   color: map-get(("red": #ff0000, "green": #00ff00), "red");
+  
+  // color: map-merge(("red": #ff0000, "green": #00ff00), ("blue": #0000ff);
+  
+  // color: map-remove(("red": #ff0000, "green": #00ff00), "red");
+}
+
+// Result:
+.abcc {
+  color: #ff0000;
+}
+
+// ========================================================
+
+$heading: (
+  'font': (
+    'weight': 500,
+    'size':(
+      42px, 36px, 30px, 24px, 20px, 18px
+    )
+  ),
+  'margin':(
+    'bottom': 20px
+  )
+);
+
+%heading-common {
+  font-weight: map-get(map-get($heading, 'font'), 'weight');
+  margin-bottom: map-get(map-get($heading, 'margin'), 'bottom');
+}
+
+@each $size in map-get(map-get($heading, 'font'), 'size') {
+  $index: index(map-get(map-get($heading, 'font'), 'size'), $size);
+  
+  h#{$index} {
+    @extend %heading-common;
+    font-size: $size;
+  }
+  
+}
+// ================================================================
+
+$heading: (
+  'font': (
+    'style': (
+      'color': red
+    ),
+    'size':(
+      42px, 36px, 30px, 24px, 20px, 18px
+    )
+  ),
+  'margin':(
+    'bottom': 20px
+  )
+);
+
+%heading-common {
+  font-style: map-get(map-get(map-get($heading, 'font'), 'style'), 'color');
+  margin-bottom: map-get(map-get($heading, 'margin'), 'bottom');
+}
+
+@each $size in map-get(map-get($heading, 'font'), 'size') {
+  $index: index(map-get(map-get($heading, 'font'), 'size'), $size);
+  
+  h#{$index} {
+    @extend %heading-common;
+    font-size: $size;
+  }
+  
+}
+
+// =====================================================
+
+$fonts: (
+  'size': 16px,
+  'weight': 500,
+  'style': italic
+);
+
+// Without function
+
+.element {
+  font-size: map-get($fonts, size);
+}
+
+// Using function
+
+@function color($key) {
+  @if map-has-key($fonts, $key) {
+    @return map-get($fonts, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $fonts.";
+  @return null;
+}
+
+.element {
+  font-style: color(style);
+}
+
+$o-grid-default-config: (
+    columns: 12,
+    gutter: 10px,
+    min-width: 240px,
+    max-width: 1330px,
+    layouts: (
+        S:  370px,  // ≥20px columns
+        M:  610px,  // ≥40px columns
+        L:  850px,  // ≥60px columns
+        XL: 1090px  // ≥80px columns
+    ),
+    fluid: true,
+    debug: false,
+    fixed-layout: M,
+    enhanced-experience: true
+);
+
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@media (max-width:map-deep-get($o-grid-default-config, "layouts", "M")) {
+  .aaaaa {
+    width: map-deep-get($o-grid-default-config, "layouts", "M");
+  }
+}
+// ======================================
+
+$colors: (
+  text: #16140F,
+  themes: (
+    dark: (
+      background: #1D1921,
+      text: #B9A5CF,
+    ),
+    light: (
+      background: #FFECC7,
+      text: #16140F
+    )
+  )
+);
+
+.back {
+  background: map-get(map-get(map-get($colors, themes), dark), background);
+}

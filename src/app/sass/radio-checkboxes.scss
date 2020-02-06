@@ -1,0 +1,175 @@
+/* The container */
+%custom {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  >input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      transition: all .275s;
+    }
+  }
+  &:hover {
+    >input ~ {
+      .checkmark {
+        background-color: #ccc;
+      }
+    }
+  }
+  &>input:checked ~ {
+    .checkmark {
+      background-color: #3F51B5;
+      &:after {
+        display: block;
+      }
+    }
+  }
+}
+
+// Checkbox Button
+.checkbox {
+  @extend %custom;
+  & .checkmark {
+      &:after {
+      content: '\2714';
+      opacity: 0;
+	    transform: scale(0) rotate(0deg);
+      color: white;
+      // transform: rotate(45deg);
+      left: 5px;
+      top: -5px;
+      height: 15px;
+      width: 15px;
+      transition: all .2s; /* Little transition */
+    }
+  }
+  &>input:checked ~ {
+    .checkmark {
+      &:after {
+       opacity: 1;
+	     transform: scale(1) rotate(15deg);
+      }
+    }
+  }
+}
+
+// Check Mark Checkbox Button
+.checkbox {
+  @extend %custom;
+  & .checkmark {
+      &:after {
+      content: '\2714';
+      opacity: 0;
+	    transform: scale(0) rotate(0deg);
+      color: white;
+      // transform: rotate(45deg);
+      left: 6px;
+      top: -5px;
+      height: 10px;
+      width: 5px;
+      transition: all .2s; /* Little transition */
+    }
+  }
+  &>input:checked ~ {
+    .checkmark {
+      &:after {
+       opacity: 1;
+	     transform: scale(1) rotate(15deg);
+      }
+    }
+  }
+}
+// Radio Button
+.radio {
+  @extend %custom;
+  & .checkmark {
+      border-radius: 50%;
+      &:after {
+        background: white;
+        border-radius: 50%;
+        top: 9px;
+      	left: 9px;
+      	height: 8px;
+      	width: 8px;
+    }
+  }
+}
+
+// Toggle Switch
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  >input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    &+.slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      &.round {
+        border-radius: 34px;
+        &:before {
+          border-radius: 50%;
+        }
+      }
+    }
+    &:checked {
+      &+ .slider {
+        background-color: #3F51B5;
+        &:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+      }
+    }
+    &:focus {
+      &+ .slider {
+        box-shadow: 0 0 1px #3F51B5;
+      }
+    }
+  }
+}

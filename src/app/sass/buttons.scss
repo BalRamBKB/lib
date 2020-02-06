@@ -1,0 +1,52 @@
+@import "../sass/grids";
+
+$colors: (
+  primary: (#0d6efd, #ffffff),
+  secondary: (#6610f2, #ffffff),
+  info: (#6f42c1, #ffffff),
+  success: (#28a745, #ffffff),
+  warning: (#ffc107, #000000),
+  error: (#ff0000, #ffffff),
+  light: (#cdd0d4, #000000),
+  dark: (#343a40, #fff),
+  white: (#ffffff, #ffffff)
+);
+
+.btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: white; /* Add a text color */
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+@each $name, $color in $colors {
+  $bgcolor: nth($color, 1);
+  $fontcolor: nth($color, 2);
+   
+  .btn-#{$name} {
+    background-color: $bgcolor;
+    color: $fontcolor;
+    &:hover {
+      background-color: darken($bgcolor, 5%);
+    }
+    &.active {
+      background-color: darken($bgcolor, 10%);
+    }
+    &.disabled,
+    &:disabled {
+      background-color: lighten($bgcolor, 30%);
+    }
+    &-outline {
+      border: 1px solid $bgcolor;
+      color: $bgcolor;
+      &:hover {
+        background: $bgcolor;
+        color: $fontcolor;
+      }
+    }
+  }
+  .text-#{$name} {
+    color: $bgcolor;
+  }
+}

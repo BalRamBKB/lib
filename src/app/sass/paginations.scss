@@ -1,0 +1,51 @@
+.pagination {
+  display: inline-block;
+    a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    &.active {
+      background-color: #3F51B5;
+      color: white;
+    }
+    &:hover:not(.active) {
+      background-color: #ddd;
+    }
+  }
+  &.round {
+    a {
+      &.active {
+        border-radius: 5px;
+      }
+      &:hover:not(.active) {
+        border-radius: 5px;
+      }
+    }
+  }
+  &.circle {
+    a {
+      &.active {
+        border-radius: 50%;
+      }
+      &:hover:not(.active) {
+        border-radius: 50%;
+      }
+    }
+  }
+  &.border {
+    a {
+      border: 1px solid #ddd;
+      &.active {
+        border: 1px solid #3F51B5;
+      }
+    }
+  }
+  &.space {
+    a {
+     margin: 0 4px;
+    }
+  }
+  
+}

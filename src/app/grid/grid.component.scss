@@ -1,0 +1,27 @@
+@import "../sass/grids";
+
+.grid-row > div {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.grid-row > div:nth-child(2) {
+  color: red
+}
+.grid-row > div:nth-child(3) {
+  color: green
+}
+.grid-row > div:nth-child(4) {
+  color: blue;
+}
+.grid-row > div:last-child {
+  color: lightcoral ;
+}
+.grid-row > div:nth-last-child(2) {
+    color: purple;
+}
+.grid-row > div:nth-last-child(3) {
+    color: orangered;
+}

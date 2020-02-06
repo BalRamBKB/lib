@@ -1,0 +1,30 @@
+<h3>Light Shade Background Colors</h3>
+<hr>
+<div class="grid-container">
+	<div class="grid-row" *ngFor="let color of colors;">
+		<!-- <p class="main {{color.colorName}}"> {{ color.colorName }}</p> -->
+		<div class="grid-xs grid-sm grid-md grid-lg grid-xl bg-light-{{color.colorName + '-' +numb}}" *ngFor="let numb of color.numbers">
+			<!-- <p class="bg-light-{{color.colorName + '-' +numb}}">Light {{color.colorName + '-'+ numb }} </p> -->
+			<p>light-{{color.colorName + '-' +numb}}</p>
+		</div>
+	</div>
+	<hr>
+	
+  <!-- <h3>Dark Shade Background Colors</h3>
+	<div class="grid-row" *ngFor="let color of colors;">
+		<div class="grid-md bg-dark-{{color.colorName + '-' +numb}}" *ngFor="let numb of color.numbers">
+			<p>dark-{{color.colorName + '-' +numb}}</p>
+		</div>
+	</div> -->
+
+	<!-- <p class="bg-dark-{{color.colorName + '-' +numb}}">Light {{color.colorName + '-'+ numb }} </p> -->
+	<!-- <p class="main {{color.colorName}}"> {{ color.colorName }}</p> -->
+  
+  <!-- <hr>
+  	<div class="grid-row" *ngFor="let color of colors;">
+		<div class="grid-md text-light-{{color.colorName + '-' +numb}}" *ngFor="let numb of color.numbers">
+			<p>light-{{color.colorName + '-' +numb}}</p>
+		</div>
+	</div> -->
+
+</div>

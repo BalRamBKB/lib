@@ -1,0 +1,52 @@
+%custom-bread {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+  li {
+    display: inline;
+    font-size: 18px;
+    &+li:before {
+      padding: 5px;
+      color: black;
+      content: "";
+    }
+    a {
+      color: #3F51B5;
+      text-decoration: none;
+      transition: background-color .3s;
+      &:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.breadcrumb {
+  @extend %custom-bread;
+  li+li:before {
+      content: "/\00a0";
+      padding: 5px;
+      color: black;
+    }
+}
+.breadcrumb-arrow {
+  @extend %custom-bread;
+  li+li:before {
+      content: "\003E";
+      padding: 5px;
+      color: black;
+      vertical-align: middle;
+    }
+}
+.breadcrumb-darrow {
+  @extend %custom-bread;
+  li+li:before {
+      content: "\226B";
+      padding: 5px;
+      color: black;
+      vertical-align: middle;
+    }
+}
+
+// BreadCrumbs Shape 
