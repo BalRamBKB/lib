@@ -1,0 +1,212 @@
+.progress {
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  
+  & &-bar {
+    background-color: #3F51B5;
+    height: 30px;
+    width: 5%;
+  }
+  &-striped  &-bar {
+    background-color: #FCBC51; 
+    background-image: 
+      linear-gradient(
+          45deg, #fca311 25%, 
+          transparent 25%, transparent 50%, 
+          rgb(252,163,17) 50%, rgb(252,163,17) 75%,
+          transparent 75%, transparent); 
+    border-radius: 4px; 
+    width: 100%; 
+  }
+  &-round &-bar {
+    background-image: 
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    border-radius: 30px;
+    height: 18px;
+    width: 50%; 
+  }
+  &-multi &-bar {
+    border-radius: 4px;
+    background-image: 
+        linear-gradient(to right, 
+          green, turquoise, #3F51B5, 
+          lightblue, purple, red);
+    height: 18px;
+    width: 40%; 
+  }
+  &-loader {
+    // height: 25px;
+      @keyframes loader {
+        @for $i from 1 through 10 {
+          #{$i*10}% {
+            width: $i*10%;
+          }
+        }
+      }
+  }
+  &-loader &-bar {
+    animation: loader 8s ease infinite;
+  }
+   
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3F51B5;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  &.two {
+    border-right: 16px solid #fca311;
+    border-bottom: 16px solid teal;
+  }
+  &.three {
+    border-right: 16px solid #fca311;
+    border-bottom: 16px solid teal;
+    border-left: 16px solid pink;
+  }
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+
+
+
+.loading {
+  display: flex;
+  justify-content: center;
+
+  div {
+    width: 1rem;
+    height: 1rem;
+    margin: 2rem 0.3rem;
+    background: #3F51B5;
+    border-radius: 50%;
+    animation: 0.9s bounce infinite alternate;
+
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  }
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
+//
+// Rotating border
+//
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+.spinner-border {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+  border: 5px solid currentColor;
+  border-right-color: transparent;
+  // stylelint-disable-next-line property-blacklist
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+}
+
+.spinner-border-sm {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+}
+
+//
+// Growing circle
+//
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.spinner-grow {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+  background-color: currentColor;
+  // stylelint-disable-next-line property-blacklist
+  border-radius: 50%;
+  opacity: 0;
+  animation: spinner-grow .75s linear infinite;
+}
+
+.spinner-grow-sm {
+  width: 50px;
+  height: 50px;
+}
+
+
+.donut {
+  width: 2rem;
+  height: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
+  border: 0.3rem solid rgba(#3F51B5, 0.3);
+  border-top-color: #3F51B5;
+  animation: 1.5s spin infinite linear;
+
+  &.multi {
+    border-bottom-color: #3F51B5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ripple {
+  width: 2rem;
+  height: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
+  border: 0.3rem solid #3F51B5;
+  transform: translate(50%);
+  animation: 1s ripple ease-out infinite;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

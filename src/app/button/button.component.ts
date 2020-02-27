@@ -19,7 +19,7 @@ colors = [
 ]
 
   constructor() { }
-
+cssStringVar:string = 'hhheeee';
   ngOnInit() {
   }
 

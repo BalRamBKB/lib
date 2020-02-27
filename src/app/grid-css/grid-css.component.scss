@@ -1,0 +1,15 @@
+.grid-css {
+  display: grid;
+  margin-top: 60px;
+  grid-gap: 10px;
+  // grid-template-columns: repeat(12, 1fr); /* Repeat columns without needing to write them */
+  grid-template-columns: 25% 50% 25%; /* Percentage units */
+
+  div {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 40px;
+    background: pink;
+  }
+  
+}

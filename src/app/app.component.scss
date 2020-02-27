@@ -1,7 +1,52 @@
 @import "sass/grids";
 
+
+.side-nav {
+  grid-area: side-nav;
+}
+
+.content {
+  grid-area: content;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-areas: "side-nav content";
+}
+
+.main {
+  min-height: 90vh;
+}
+
 @media screen and (max-width: 767px) {
+  .main-container {
+    grid-template-areas: "content content";
+  }
   .main {
     padding-top: 58px;
   }
 }
+
+// Nesting  Ampersand Use
+
+// .parent1 {
+//     color: red;
+//     &-child &-bar {
+//         color: yellow;
+//       &.sibling { 
+//           color: pink;
+//       }
+//     }
+// }
+
+
+// .parent {
+//   color: red;
+//   .child {
+//       color: green;
+//     & div & & > a {
+//         color: pink;
+//     }
+//   }
+// }

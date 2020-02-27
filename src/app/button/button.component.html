@@ -1,45 +1,33 @@
-<div class="grid-container">
-  	<h3>Button</h3>
-	<div class="grid-row">
-		<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors; let ind=index;">
-			<button class="btn btn-{{color}}">{{color}}</button>
-		</div>
-	</div>
-  <hr>
-	<h3>Button Outline</h3>
-	<div class="grid-row">
-		<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors">
-			<button class="btn btn-{{color}}-outline">{{color}}</button>
-		</div>
-	</div>
-  <hr>
-	<h3>Button State</h3>
-	<div class="grid-row">
-		<div class="grid-xs-12 grid-sm-12 grid-md-12">
-			<button class="btn btn-primary">Button Primary</button>
-			<button class="btn btn-primary active">Button Primary Active</button>
-			<button class="btn btn-primary disabled" disabled>Button Primary disabled</button>
-		</div>
-	</div>
-  <hr>
-	<h3>Colors</h3>
-  <p>Background</p>
-	<div class="grid-row">
-		<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors">
-			<p class="bg-{{color}} text-white">{{color}}</p>
-		</div>
-	</div>
-   <p>Foreground</p>
-	<div class="grid-row">
-		<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors">
-			<p class="text-{{color}}">{{color}}</p>
-		</div>
-	</div>
-  <hr>
-  <h3>Alerts</h3>
-  	<div class="grid-row">
-		<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors">
-			<p class="alert alert-{{color}}">Alert box. <b>{{color}}</b></p>
-		</div>
+<!-- <div class="grid-container"> -->
+<h3>Button</h3>
+<div class="grid-row dark-theme">
+	<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors; let ind=index;">
+		<button class="btn btn-{{color}}">{{color}}</button>
 	</div>
 </div>
+<hr>
+<h3>Button Outline</h3>
+<div class="grid-row">
+	<div class="grid-xs grid-sm grid-md dark-theme" *ngFor="let color of colors">
+		<button class="btn btn-{{color}}-outline">{{color}}</button>
+	</div>
+</div>
+<hr>
+<h3>Button State</h3>
+<div class="grid-row dark-theme">
+	<div class="grid-xs-12 grid-sm-12 grid-md-12">
+		<button class="btn btn-primary">Button Primary</button>
+		<button class="btn btn-primary active">Button Primary Active</button>
+		<button class="btn btn-primary disabled" disabled>Button Primary disabled</button>
+	</div>
+</div>
+<hr>
+<h3>Alerts</h3>
+<div class="grid-row">
+	<div class="grid-xs grid-sm grid-md" *ngFor="let color of colors">
+		<p class="alert alert-{{color}}">Alert box. <b>{{color}}</b></p>
+	</div>
+</div>
+<!-- </div> -->
+<hr>
+<!-- <app-custom-button [cssStringVar]="sampleData">helloooo</app-custom-button> -->

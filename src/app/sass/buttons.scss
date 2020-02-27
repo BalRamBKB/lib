@@ -1,16 +1,4 @@
-@import "../sass/grids";
-
-$colors: (
-  primary: (#0d6efd, #ffffff),
-  secondary: (#6610f2, #ffffff),
-  info: (#6f42c1, #ffffff),
-  success: (#28a745, #ffffff),
-  warning: (#ffc107, #000000),
-  error: (#ff0000, #ffffff),
-  light: (#cdd0d4, #000000),
-  dark: (#343a40, #fff),
-  white: (#ffffff, #ffffff)
-);
+@import "./colors";
 
 .btn {
   background-color: transparent;
@@ -45,8 +33,5 @@ $colors: (
         color: $fontcolor;
       }
     }
-  }
-  .text-#{$name} {
-    color: $bgcolor;
   }
 }

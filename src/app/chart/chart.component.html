@@ -1,0 +1,96 @@
+<p>Chart</p>
+<div class="grid-container">
+	<div class="row">
+		<div class="">
+			<p class="total" *ngFor="let data of reversedList">
+				<span class="">{{data.total}}</span>
+			</p>
+		</div>
+		<div class="items">
+			<span *ngFor="let data of DataS" style="" class="value span"
+      [ngStyle]="{'height': data.quantity*100/1100 + '%'}"
+      >{{data.quantity}}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="">
+		</div>
+		<div class="items2">
+			<div *ngFor="let data of DataS">
+				<p class="year">{{data.year}}</p>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<h3>Status</h3>
+	<svg height="240" width="220">
+		<g class="group" *ngFor="let data of DataS; let ind = index">
+			<text [attr.x]="33*ind" [attr.y]="235 - data.quantity*100/1100 ">{{data.quantity}}</text>
+
+			<rect width="30" [attr.height]="data.quantity*100/1100  + '%'" [attr.y]="240 - data.quantity*100/1100 "
+				[attr.x]="32*ind" fill="#529fca" />
+
+		</g>
+	</svg>
+	<hr>
+
+	<svg width="200" height="200" >
+		<g *ngFor="let data of DataS; let ind = index" stroke="#000" stroke-width="2">
+			<path [attr.d]="data.quantity*100/1100" fill="#f00" />
+		</g>
+	</svg>
+
+	<hr>
+
+<h3>Circle</h3>
+	<svg height="220" width="220" viewBox="0 0 20 20">
+		<circle r="10" cx="10" cy="10" fill="pink" />
+    <g *ngFor="let data of DataS; let ind = index">
+        <circle r="5" [attr.cx]="33*ind" 
+        [attr.cy]="33*ind" 
+        fill="transparent" 
+        stroke="green" 
+        stroke-width="10"
+        [attr.strokeDasharray]="data.quantity*100/1100" transform="rotate(-90) translate(-10)" />
+    </g>
+	</svg>
+<hr>
+<h3>Path</h3>
+<svg stroke="pink">
+    <path d="M50,50, m50, 50 l100, 100" style="stroke:red; fill:green;"/>
+     <!-- <path d="M50,50 L100, 100" style="stroke:green; fill:green;"/> -->
+</svg>
+<hr>
+<svg>
+    <!-- <path d="M50,50 l100, 100" style="stroke:red; fill:green;"/> -->
+    <!-- d="MoveTo from left, from top.. LineTo from left, from top " -->
+     <path d="M0,0 L10, 50 50, 60" style="stroke:green; fill:green;"/>
+</svg>
+<hr>
+<svg>
+    <path d="M50,50
+             A30,50 0 0,1 100,100"
+          style="stroke:purple; fill:none;"/>
+</svg>
+	<hr>
+	<svg width="300" height="300" viewBox="0 0 42 42" class="donut">
+		<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+		<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4"
+			stroke-width="3"></circle>
+
+		<g *ngFor="let donut of DataS; let i = index;">
+			{{updatePercent(i, donut)}}
+
+			<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#abc"
+				stroke-width="3" [attr.stroke-dasharray]="donut.quantity + ' ' + (100 - donut.year)"
+				[attr.stroke-dashoffset]="donut.quantity"></circle>
+		</g>
+	</svg>
+	<!-- <div class="items">
+    <div class="grid-md offset-md-1" *ngFor="let data of DataS">
+			<p class="year">{{data.year}}</p>
+		</div>
+  </div> -->
+	<hr>
+	<app-chart-svg></app-chart-svg>
+</div>

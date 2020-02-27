@@ -1,0 +1,84 @@
+// @import "../sass/grids";
+
+.row {
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+.total {
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.value {
+  color: #fff;
+  display: inline-block;
+  // padding: 10px 15px;
+  // margin-bottom: 30px;
+  margin-left: 20px;
+  width: 30px;
+}
+
+.year {
+  display: inline-block;
+  padding: 0 10px ;
+}
+
+.items {
+  display: flex;
+  align-items: flex-end;
+}
+.items2 {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.span:nth-child(1) {
+  background: purple;
+}
+.span:nth-child(2) {
+  background: red;
+}
+.span:nth-child(3) {
+  background: green;
+}
+.span:nth-child(4) {
+  background: orange;
+}
+.span:nth-child(5) {
+  background: blue;
+}
+.span:nth-child(6) {
+  background: pink;
+}
+
+// For SVG 
+
+.group:nth-child(1) rect {
+  fill: purple;
+}
+.group:nth-child(2) rect {
+  fill: maroon;
+}
+.group:nth-child(3) rect {
+  fill: green;
+}
+.group:nth-child(4) rect {
+  fill: orangered;
+}
+.group:nth-child(5) rect {
+  fill: teal;
+}
+.group:nth-child(6) rect {
+  fill: goldenrod;
+}
+
+// circle {
+//   fill: yellowgreen;
+//   stroke: #655;
+//   stroke-width: 30;
+//   stroke-dasharray: 38 100;
+// }
